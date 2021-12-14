@@ -104,10 +104,7 @@ class AmazonSpiderSpider(scrapy.Spider):
                 product['description'] = product['description'].replace('Amazon.com | ','')
         except:
             pass
-        # string=""
-        # for l in response.xpath('//*[@id="altImages"]//img/@src').extract():
-        #     l= l.replace('._AC_SR38,50_','')
-        #     string += l 
+        
         product['image_urls'] = response.xpath('//*[@id="altImages"]//img/@src').extract()
         print(product)
         if(product['name']!=None):
